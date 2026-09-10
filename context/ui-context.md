@@ -27,6 +27,10 @@ product colors inside components.
 | Error | `--state-error` | `#FF4B4B` |
 | Success | `--state-success` | `#46A302` |
 
+Supporting surface, strong-accent, and shadow tokens may be derived from
+these core variables with CSS `color-mix()`. Components must reference the
+semantic derived token instead of introducing a product color literal.
+
 ## Typography
 
 | Role | Font | Variable |

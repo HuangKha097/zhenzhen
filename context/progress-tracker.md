@@ -4,11 +4,11 @@ Update this file after every meaningful implementation change.
 
 ## Current Phase
 
-- Design system foundation complete
+- Student practice video library UI preview complete
 
 ## Current Goal
 
-- Select the next feature specification before beginning more implementation
+- Select the next scoped video playback or tracking feature before implementation
 
 ## Completed
 
@@ -30,6 +30,33 @@ Update this file after every meaningful implementation change.
 - Defined Voice Conversation as persistent, voice-only chat with
   Cloudinary audio and real-time Socket.IO delivery
 - Updated all six context files without implementing product features
+- Replaced the starter screen with a responsive student dashboard preview
+- Added role-appropriate desktop and mobile navigation, a primary lesson card,
+  all four supported practice activity previews, weekly progress, ranking, and
+  Voice Conversation entry points
+- Mapped shadcn/ui theme values to the semantic ZhenZhen product tokens and
+  added derived surface, accent, and shadow tokens
+- Kept the dashboard as Server Components with static preview content only;
+  no unresolved scoring, unlocking, or authorization behavior was implemented
+- Verified the dashboard with ESLint, TypeScript, a production build, and
+  Chrome checks at desktop and 390px mobile viewport sizes
+- `03-student-lesson-page-ui`: added a responsive `/lesson` overview with a
+  lesson header, progress, a four-activity roadmap, learning goals, a teacher
+  note, and a lesson-resource preview
+- Made the shared student navigation route-aware and replaced dashboard hash
+  placeholders with Next.js links to the lesson overview
+- Kept the lesson page as static Server Components without adding assignment,
+  activity-player, resource-download, completion, or reward behavior
+- Verified direct Lesson loading and dashboard-to-Lesson navigation in Chrome
+  at desktop and 390px mobile viewport sizes
+- `04-student-practice-video-library`: added a responsive `/practice` page with
+  a featured teacher video and a six-video class library
+- Connected the shared Practice navigation item to `/practice` and preserved
+  the same 1480px content shell and responsive gutters across pages
+- Kept playback, teacher publishing, real data, and progress tracking out of
+  this static Server Component preview
+- Verified the Practice page with ESLint, TypeScript, a production build, and
+  Chrome checks at 1920px, 1440px, and 390px viewport widths
 
 ## In Progress
 
@@ -37,7 +64,8 @@ Update this file after every meaningful implementation change.
 
 ## Next Up
 
-- Read and scope the next feature specification before implementation
+- Specify the teacher-video source and playback contract before connecting
+  real posts, then scope progress tracking as a separate subfeature
 
 ## Open Questions
 
@@ -78,3 +106,17 @@ Update this file after every meaningful implementation change.
 - Preserve the current context-file structure in later updates
 - The existing boilerplate branding can be replaced when implementation
   is explicitly started
+- `02-student-dashboard-ui` is presentation-only; visible names, progress,
+  points, and rankings are sample content and are not connected to backend rules
+- Noto Sans SC remains first in the CJK fallback stack without a remote font
+  request, so production builds do not depend on Google Fonts network access
+- `03-student-lesson-page-ui` uses sample goals, progress, resource metadata,
+  and teacher guidance; none of it is connected to a real assignment
+- Do not run `next build` while `next dev` is active in this checkout. Both use
+  `.next`, and the overlap produced a stale dev CSS/runtime state that stretched
+  the Lesson hero until the dev server was restarted.
+- Keep Dashboard and Lesson on the same `max-w-[1480px]` page shell and
+  responsive horizontal gutters; reserve the scrollbar gutter so that the
+  content block stays aligned when moving between short and long pages.
+- `04-student-practice-video-library` uses static sample titles, teacher names,
+  dates, and durations; no video player, upload flow, or tracking rule exists.
